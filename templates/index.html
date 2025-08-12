@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} - Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ name }}</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Hello, I'm {{ name }}</h2>
+        <p>{{ role }}</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Passionate and results-oriented programmer pursuing a B.Tech in Computer Science and Information Technology with
+a GPA of 8.7. Skilled in C, C++, Python, MySQL, data structures, and algorithms, with strong problem-solving
+abilities. Committed to continuous learning and eager to contribute to innovative software engineering and AI
+solutions.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        {% for p in projects %}
+            <div>
+                <h3>{{ p.title }}</h3>
+                <p>{{ p.desc }}</p>
+                <a href="{{ p.link }}">View Project</a>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: {{ contact_email }}</p>
+    </section>
+
+    <footer>
+        <p>© 2025 {{ name }}. All rights reserved.</p>
+    </footer>
+</body>
+</html>
